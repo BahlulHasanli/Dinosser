@@ -16,14 +16,14 @@ export const FOLDER: {
 export function Run({
   name,
   fileSize,
-  mimeType,
+  extention,
 }: {
   name: string;
   fileSize: number;
-  mimeType: 'jpeg' | 'png' | 'webp';
+  extention: 'jpeg' | 'png' | 'webp';
 }) {
   sharp(`${FOLDER.CURRENT}\\${FOLDER.MAIN_FOLDER}\\${FOLDER.FROM_DIR}\\${name}`)
-    [mimeType]({
+    [extention]({
       quality: Number(Deno.env.get('QUALITY')),
     })
     .toFile(
